@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
 import SearchForm from './components/SearchForm';
+import GifList from './components/GifList';
 
 function App() {
+  const [searchResults, setSearchResults] = useState([]);
 
   async function gifSearch(query, number) {
     try {
@@ -12,7 +14,7 @@ function App() {
 
       const response = await fetch(url, { mode: 'cors' });
       const data = await response.json();
-      console.log(data);
+      setSearchResults(data.data)
     } catch(error) {
       console.log(error);
     }
@@ -24,7 +26,8 @@ function App() {
 
   return (
     <div className="App">
-      <SearchForm userInput={userInput}/>
+      <SearchForm userInput={userInput} />
+      <GifList searchResults={searchResults} />
     </div>
   );
 }
