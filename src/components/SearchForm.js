@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 
+// TODO Debounce user input
+
 function SearchForm(props) {
   const [searchTerm, setSearchTerm] = useState('');
   const [numberOfGifs, setNumberOfGifs] = useState(0);
 
   function SetUserInput(event) {
+    // TODO lowercase and trim
     if (event.target.name === 'query') setSearchTerm(event.target.value);
 
+    // TODO accept numbers only and trim
     if (event.target.name === 'number') setNumberOfGifs(event.target.value);
   }
 
