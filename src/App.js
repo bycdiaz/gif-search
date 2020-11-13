@@ -1,10 +1,15 @@
-import './App.css';
+import React from 'react';
+
+import SearchForm from './components/SearchForm';
 
 function App() {
   async function gifSearch() {
     try {
-      const url = 'http://api.giphy.com/v1/gifs/search?q=cats&api_key=JCi4z2AIWowzJTWX7HtbX7OjQIeZEHpT&limit=5'
-      const response = await fetch(url, {mode: 'cors' });
+      const searchQuery = 'cats';
+      const gifsRequested = 5;
+      const url = `http://api.giphy.com/v1/gifs/search?q=${searchQuery}&api_key=JCi4z2AIWowzJTWX7HtbX7OjQIeZEHpT&limit=${gifsRequested}`
+
+      const response = await fetch(url, { mode: 'cors' });
       const data = await response.json();
       console.log(data);
     } catch(error) {
@@ -15,7 +20,7 @@ function App() {
   gifSearch();
   return (
     <div className="App">
-      hi
+      <SearchForm />
     </div>
   );
 }
