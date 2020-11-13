@@ -4,11 +4,12 @@ function GifList(props) {
   function Gifs() {
     return props.searchResults.map(result => {
       return (
-        <div className="gif-container" key={result.id}>
-          <p>
+        <ul className="gif-container" key={result.id}>
+          <li>
             {result.title}
-          </p>
-        </div>
+            <img src={result.images.preview_gif.url} alt="Loading" title="Loading" />
+          </li>
+        </ul>
       );
     });
   }
