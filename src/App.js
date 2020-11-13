@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import SearchForm from './components/SearchForm';
 
 function App() {
-  async function gifSearch() {
+
+  async function gifSearch(query, number) {
     try {
-      const searchQuery = 'cats';
-      const gifsRequested = 5;
+      const searchQuery = query;
+      const gifsRequested = number;
       const url = `http://api.giphy.com/v1/gifs/search?q=${searchQuery}&api_key=JCi4z2AIWowzJTWX7HtbX7OjQIeZEHpT&limit=${gifsRequested}`
 
       const response = await fetch(url, { mode: 'cors' });
@@ -17,10 +18,13 @@ function App() {
     }
   }
 
-  gifSearch();
+  function userInput(searchTerm, numberRequested) {
+    gifSearch(searchTerm, numberRequested);
+  }
+
   return (
     <div className="App">
-      <SearchForm />
+      <SearchForm userInput={userInput}/>
     </div>
   );
 }
