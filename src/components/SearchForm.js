@@ -17,11 +17,13 @@ function SearchForm(props) {
 
   return (
     <form action="" onSubmit={gatherInput}>
+
       <label htmlFor="query">Search Term:</label>
       <input type="text" id="query" name="query" onChange={SetUserInput}></input>
 
       <label htmlFor="query">Number Requested:</label>
       <input type="text" id="number" name="number" onChange={SetUserInput}></input>
+
       <input type="submit" value="Submit"></input>
 
     </form> 
