@@ -14,7 +14,7 @@ function App() {
 
       const response = await fetch(url, { mode: 'cors' });
       const data = await response.json();
-      setSearchResults(data.data)
+      setSearchResults(data.data);
     } catch(error) {
       console.log(error);
     }
@@ -26,7 +26,9 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Gif Search</h1>
       <SearchForm userInput={userInput} />
+      {/* Bring in React Router. Clicking on result can take to Gif info page. */}
       <GifList searchResults={searchResults} />
     </div>
   );
