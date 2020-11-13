@@ -28,7 +28,9 @@ function App() {
     <div className="App">
       <h1>Gif Search</h1>
       <SearchForm userInput={userInput} />
-      {/* Bring in React Router. Clicking on result can take to Gif info page. */}
+      {/* TODO Bring in React Router. Clicking on result can take to Gif info page. */}
+      {/* TODO Set up ability to up or downvote Gif in info page */}
+      {/* TODO If Gif is rated in Gif info page, persist Gif details and rating in local storage. */}
       <GifList searchResults={searchResults} />
     </div>
   );
